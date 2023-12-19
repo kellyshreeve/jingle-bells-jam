@@ -62,7 +62,7 @@ Rather than brute-force solve the permutation problem, Concorde library in Pytho
 
 #### Random Model
 
-First, a random model was fit as a baseline to find distance and time it would take Santa without data. This model chooses the next city randomly (if santa chose off vibes), and calculates the Haversine distance to go along the random route:
+First, a random model was fit as a baseline to find distance and time it would take Santa without data. This model chooses the next city randomly (if santa chose off vibes), and calculates the Haversine distance along the random route:
 
 ![Alt text](<Screenshot 2023-12-14 at 3.12.00 PM.png>)
 
