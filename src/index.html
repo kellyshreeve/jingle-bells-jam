@@ -17,11 +17,11 @@
       crossorigin=""
     />
     <script
+      defer
       src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
       crossorigin=""
     ></script>
-    <link rel="stylesheet" href="./pages/index.css" />
   </head>
   <body class="page">
     <div class="page__content">
@@ -29,7 +29,7 @@
         <h1 class="header__heading">merry mailers</h1>
         <img
           class="header__image"
-          src="./images/header-background.jpg"
+          src="<%=require('./images/hero-img.png')%>"
           alt="Christmas animated image."
         />
         <div class="header__description">
@@ -45,21 +45,21 @@
       <main class="main">
         <img
           class="main__divisor"
-          src="./images/lights.svg"
+          src="<%=require('./images/lights.svg')%>"
           alt="Christmas lights"
         />
-        <section class="service">
-          <p class="service__description">
+        <section class="features">
+          <p class="features__description">
             We don’t do boring. Our delivery team? Elves might mix up a package
             or two, but hey, that’s just an opportunity for you to meet your
             neighbors! With a sprinkle of holiday magic, we ensure that your
             packages don’t just arrive on time, they arrive with style.
           </p>
-          <div class="features">
-            <div class="feature">
+          <div class="features__list">
+            <div class="features__feature">
               <img
                 class="feature__image"
-                src="./images/gift.png"
+                src="<%=require('./images/gift.png')%>"
                 alt="Gift image"
               />
               <p class="feature__name">Lightning-Fast Deliveries</p>
@@ -67,10 +67,10 @@
                 We're talking Rudolph-on-a-good-day fast!
               </p>
             </div>
-            <div class="feature">
+            <div class="features__feature">
               <img
                 class="feature__image"
-                src="./images/Christmas-tree.png"
+                src="<%=require('./images/Christmas-tree.png')%>"
                 alt="Christmas tree image"
               />
               <p class="feature__name">Holiday Cheer Included</p>
@@ -78,10 +78,10 @@
                 Each package comes with a dash of joy and a hint of peppermint.
               </p>
             </div>
-            <div class="feature">
+            <div class="features__feature">
               <img
                 class="feature__image feature__image_widther"
-                src="./images/reindeer.png"
+                src="<%=require('./images/reindeer.png')%>"
                 alt="Reindeer image"
               />
               <p class="feature__name">Eco-Friendly Sleighs</p>
@@ -93,16 +93,58 @@
           </div>
         </section>
         <section class="map">
-          <h2 class="map__heading">
-            Delivering gifts faster than you can say "Ho Ho Ho!"
-          </h2>
-          <div id="map" class="map__container"></div>
+          <div class="map__background">
+            <h2 class="map__heading">
+              Delivering gifts faster than you can say "Ho Ho Ho!"
+            </h2>
+            <div id="map" class="map__container"></div>
+          </div>
+          <p class="map__text">
+            Ever wonder how Santa decides where to go first? Well, it used to be
+            a bit of a lucky dip (Bolivia was first out of the hat last year),
+            but now, it's all about efficiency. This optimized path is not just
+            about saving time; it’s about ensuring every good girl and boy gets
+            their present right on schedule!
+          </p>
+          <div class="map__wrapper">
+            <div class="map__description">
+              <p class="map__name">Before</p>
+              <img
+                class="map__image map__image_angry"
+                src="<%=require('./images/angry-santa.svg')%>"
+                alt="Angry Santa"
+              />
+              <p class="map__distance map__distance_type_before"></p>
+              <p class="map__algorithm">
+                Before Santa began using the Merry Mailers service, there was a
+                growing belief among some people that he wasn't real.
+              </p>
+            </div>
+            <div class="map__description">
+              <p class="map__name">After</p>
+              <img
+                class="map__image map__image_happy"
+                src="<%=require('./images/happy-santa.svg')%>"
+                alt="Happy Santa"
+              />
+              <p class="map__distance map__distance_type_after"></p>
+              <p class="map__algorithm">
+                With our algorithm and optimized route, Santa can visit all
+                locations and still have extra time for cookies and milk.
+              </p>
+            </div>
+          </div>
         </section>
+        <img
+          class="main__divisor"
+          src="<%=require('./images/lights.svg')%>"
+          alt="Christmas lights"
+        />
         <section class="wish-maker">
           <div class="wish-maker__container">
             <h2 class="wish-maker__heading">Got a Wish? Write to Santa!</h2>
             <div class="wish-maker__form-container">
-              <form class="form wish-maker__form" name="form">
+              <form class="form wish-maker__form" name="form" id="form">
                 <input
                   required
                   class="form__input"
@@ -112,7 +154,6 @@
                   maxlength="30"
                   id="name"
                   placeholder="Full Name"
-                  required
                 />
                 <span class="form__input-error name-error"></span>
                 <input
@@ -124,7 +165,6 @@
                   minlength="10"
                   maxlength="100"
                   placeholder="Address"
-                  required
                 />
                 <span class="form__input-error address-error"></span>
                 <textarea
@@ -132,7 +172,7 @@
                   type="text"
                   name="your-dreams"
                   id="your-dreams"
-                  minlength="2"
+                  minlength="10"
                   maxlength="30"
                   placeholder="Your dreams"
                   required
@@ -140,7 +180,7 @@
                 <span class="form__input-error your-dreams-error"></span>
                 <button type="submit" class="form__button">
                   <img
-                    src="./images/send_button.svg"
+                    src="<%=require('./images/send_button.svg')%>"
                     class="form__button-image"
                   />
                   Send
@@ -150,15 +190,11 @@
           </div>
           <img
             class="wish-maker__image"
-            src="./images/wish-maker-image.png"
+            src="<%=require('./images/wish-maker-image.png')%>"
             alt="Christmas cats animated image"
           />
         </section>
-        <img
-          class="main__divisor"
-          src="./images/lights.svg"
-          alt="Christmas lights"
-        />
+
         <section class="entertainment">
           <div class="entertainment__description">
             <h2 class="entertainment__heading">
@@ -170,19 +206,21 @@
               festive fun with the perfect mix of jingles, joy, and jumpin'
               beats to get those hooves tapping!
             </p>
-            <p class="enternainment__sub-heading">What's on the Playlist?</p>
-            <p class="entertainment__content">
-              🎅 North Pole’s Top Hits: The songs that get Santa and the team in
-              the groove for the big night.
-            </p>
-            <p class="entertainment__content">
-              🦌 Reindeer Remixes: From 'Jingle Bells' to 'Deck the Halls',
-              these tunes are reinvented with a Rudolf twist!
-            </p>
-            <p class="entertainment__content">
-              🧝Elf-Crafted Beats: Our elves are not just good at making toys;
-              they're pretty savvy with tunes too!
-            </p>
+            <h3 class="enternainment__sub-heading">What's on the Playlist?</h3>
+            <ul class="entertainment__list">
+              <li class="entertainment__list-item">
+                🎅 North Pole’s Top Hits: The songs that get Santa and the team
+                in the groove for the big night.
+              </li>
+              <li class="entertainment__list-item">
+                🦌 Reindeer Remixes: From 'Jingle Bells' to 'Deck the Halls',
+                these tunes are reinvented with a Rudolf twist!
+              </li>
+              <li class="entertainment__list-item">
+                🧝Elf-Crafted Beats: Our elves are not just good at making toys;
+                they're pretty savvy with tunes too!
+              </li>
+            </ul>
           </div>
           <div class="entertainment__iframe-container">
             <iframe
@@ -195,6 +233,12 @@
             ></iframe>
           </div>
         </section>
+        <div class="popup-confirm">
+          <div class="popup__container">
+            <p class="popup__text">Santa will know about your wish!</p>
+            <button type="submit" class="popup__btn">Cool!</button>
+          </div>
+        </div>
       </main>
       <footer class="footer">
         <p class="footer__copyright">&copy; 2023 Merry Codemas</p>

@@ -21,6 +21,7 @@
 
 .form__input_size_big {
   height: 194px;
+  overflow: hidden;
 }
 
 .form__input:focus {
@@ -28,58 +29,51 @@
 }
 
 .form__input::-webkit-input-placeholder {
-  font-family: "Figtree", "Arial", "Helvetica", sans-serif;
   font-size: 16px;
   font-weight: 600;
-  line-height: 1.2;
+
   text-align: left;
   color: #000;
   padding-bottom: 180px;
 }
 
 .form__input::-moz-placeholder {
-  font-family: "Figtree", "Arial", "Helvetica", sans-serif;
   font-size: 16px;
   font-weight: 600;
-  line-height: 1.2;
+
   text-align: left;
   color: #000;
   padding-bottom: 180px;
 }
 
 .form__input::-ms-input-placeholder {
-  font-family: "Figtree", "Arial", "Helvetica", sans-serif;
   font-size: 16px;
   font-weight: 600;
-  line-height: 1.2;
+
   text-align: left;
   color: #000;
   padding-bottom: 180px;
 }
 
 .form__input::-o-input-placeholder {
-  font-family: "Figtree", "Arial", "Helvetica", sans-serif;
   font-size: 16px;
   font-weight: 600;
-  line-height: 1.2;
   text-align: left;
   color: #000;
   padding-bottom: 180px;
 }
 
 .form__input::placeholder {
-  font-family: "Figtree", "Arial", "Helvetica", sans-serif;
   font-size: 16px;
   font-weight: 600;
-  line-height: 1.2;
   text-align: left;
   color: #000;
 }
 
 .form__input-error {
-  font-size: 12px;
+  font-size: 14px;
   margin: 4px auto;
-  font-weight: 400;
+
   display: block;
   content: "\200b";
   height: 14px;
@@ -94,11 +88,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  column-gap: 5px;
-  font-family: "Figtree", "Arial", "Helvetica", sans-serif;
+  gap: 10px;
   font-size: 16px;
   font-weight: 600;
-  line-height: 1.2;
   max-width: 140px;
   width: 100%;
   background-color: #fff;
@@ -132,13 +124,13 @@
   }
 
   .form__input::placeholder {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .form__button {
     max-width: 80px;
     height: 25px;
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .form__button-image {

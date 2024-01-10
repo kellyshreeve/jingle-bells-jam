@@ -2,8 +2,8 @@ import "./index.css";
 import santa from "../images/santa.png";
 import data from "../scripts/data.json";
 import FormValidator from "../components/FormValidator.js";
-
-console.log(data);
+import Form from "../components/Form.js";
+import Popup from "../components/PopupConfirm.js";
 
 const map = L.map("map").setView([51.505, -0.09], 2);
 const path = [];
@@ -31,7 +31,15 @@ data.countries.forEach((item) => {
 const optimalPath = path.sort((a, b) => a[2] - b[2]);
 const polyline = L.polyline(optimalPath).addTo(map);
 
+document.querySelector(
+  ".map__distance_type_before"
+).textContent = `${Math.round(data.total_distance_random)} mi`;
+document.querySelector(".map__distance_type_after").textContent = `${Math.round(
+  data.total_distance_opt
+)} mi`;
 const form = document.forms.form;
+const popup = document.querySelector(".popup-confirm");
+const dataLetters = [];
 
 const options = {
   formSelector: ".form",
@@ -43,3 +51,13 @@ const options = {
 
 const formValidator = new FormValidator(options, form);
 formValidator.enableValidation();
+
+const popupConfirm = new Popup(popup);
+
+const formLetter = new Form(form, () => {
+  popupConfirm.open();
+  dataLetters.push(formLetter._getInputValues());
+  formLetter.reset();
+});
+
+formLetter.setEventListeners();
