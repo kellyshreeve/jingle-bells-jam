@@ -77,7 +77,7 @@ Rather than brute-force solve the permutation problem, Concorde library in Pytho
 
 First, a random model was fit as a baseline to find distance and time it would take Santa without data. This model chooses the next city randomly (if santa chose off vibes), and calculates the Haversine distance along the random route:
 
-![Alt text](<Screenshot 2023-12-14 at 3.12.00 PM.png>)
+![Alt text](<random-route.png>)
 
 **Random Route Results**: 
 
@@ -93,7 +93,7 @@ Random Route Time: 36.14 Hours
 
 With Concorde library, Santa's route was optimized to the shortest distance possible. This library was developed specifically to solve the Traveling Sales Man problem and can quickly and efficiently solve the best route between locations. A matrix of Haversine distances was fed into the model, and this was the result:
 
-![Alt text](<Screenshot 2023-12-14 at 3.26.25 PM.png>)
+![Alt text](<optimized-route.png>)
 
 **Optimized Route Results**:
 
